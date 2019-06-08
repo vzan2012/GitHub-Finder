@@ -3,6 +3,7 @@ class UI {
     this.profile = document.querySelector("#profile");
   }
 
+  // Show the profile to UI
   showProfile(user) {
     this.profile.innerHTML = `
         <div class="card card-body mb-3">
@@ -16,6 +17,7 @@ class UI {
             }" target="_blank" class="btn btn-block btn-primary btn-view-profile">View Profile</a>
           </div>
           <div class="col-md-9 col-xs-12">
+           <h3>${user.name}</h3>
            <div class="badge-group">
             <span class="badge badge-primary">Public Repos: ${
               user.public_repos
@@ -32,6 +34,9 @@ class UI {
            </div>
            <div class="n-section">
             <ul class="list-group guf-list-group">
+                <li class="list-group-item">Username: <span class="badge badge-info badge-pill">${
+                  user.login
+                }</span></li>            
                 <li class="list-group-item">Company: <span class="badge badge-info badge-pill">${
                   user.company
                 }</span></li>
@@ -53,5 +58,40 @@ class UI {
       <h3 class="page-heading mb-3">Latest Repos</h3>
       <div id="repos"></div>
         `;
+  }
+
+  // Show the Alerts
+  showAlert(message, className) {
+    // Clear the alert
+    this.clearAlert();
+    // Create div
+    const div = document.createElement('div');
+    // Add Class Name to the div
+    div.className = className;
+    // Add text
+    div.appendChild(document.createTextNode(message));
+    // Get the container
+    const container = document.querySelector('.searchContainer');
+    // Get the search card
+    const search = document.querySelector('.search');
+    // Insert Alert
+    container.insertBefore(div, search);
+
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  // Clear the Alert
+  clearAlert() {
+    const currAlert = document.querySelector('.alert');
+
+    if(currAlert)
+      currAlert.remove();
+  }
+
+  // Clear the Profile
+  clearProfile() {
+    this.profile.innerHTML = '';
   }
 }
