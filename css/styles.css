@@ -9,11 +9,35 @@
   overflow: hidden;
 }
 
+.user-img {
+  border: 1px solid #eee;
+}
+
+.searchContainer {
+  padding-bottom: 50px;
+}
+
+.n-section {
+  margin-top: 10px;
+}
+
+.guf-list-group li.list-group-item {
+  background: #eee;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
 .guf-footer {
   bottom: 0;
   color: #fff;
   font-size: 12px;
   position: fixed;
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  .btn-view-profile {
+    margin-bottom: 30px;
+  }
 }
 /* Custom Styles - End */
