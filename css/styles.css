@@ -1,0 +1,19 @@
+/* Custom Styles - Start */
+.guf-navbar a {
+  margin: 0 auto;
+}
+
+#profile {
+  margin-top: 3em;
+  position: relative;
+  overflow: hidden;
+}
+
+.guf-footer {
+  bottom: 0;
+  color: #fff;
+  font-size: 12px;
+  position: fixed;
+  width: 100%;
+}
+/* Custom Styles - End */
