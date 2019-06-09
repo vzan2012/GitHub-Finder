@@ -65,15 +65,15 @@ class UI {
     // Clear the alert
     this.clearAlert();
     // Create div
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     // Add Class Name to the div
     div.className = className;
     // Add text
     div.appendChild(document.createTextNode(message));
     // Get the container
-    const container = document.querySelector('.searchContainer');
+    const container = document.querySelector(".searchContainer");
     // Get the search card
-    const search = document.querySelector('.search');
+    const search = document.querySelector(".search");
     // Insert Alert
     container.insertBefore(div, search);
 
@@ -84,14 +84,43 @@ class UI {
 
   // Clear the Alert
   clearAlert() {
-    const currAlert = document.querySelector('.alert');
+    const currAlert = document.querySelector(".alert");
 
-    if(currAlert)
-      currAlert.remove();
+    if (currAlert) currAlert.remove();
+  }
+
+  // Show User Repos
+  showRepos(repos) {
+    let output = "";
+    // console.log(repos);
+    repos.forEach(repo => {
+      output += `
+      <div class="card card-body mb-2">
+        <div class="row">
+          <div class="col-md-6 col-xs-12">
+            <strong><a href="${repo.html_url}" title="${
+        repo.name
+      }" target="_blank">${repo.name}</a></strong>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <span class="badge badge-primary">Stars: ${
+              repo.stargazers_count
+            }</span>
+            <span class="badge badge-secondary">Watchers: ${
+              repo.watchers_count
+            }</span>
+            <span class="badge badge-success">Forks: ${repo.forks_count}</span>
+          </div>
+        </div>
+      </div>
+      `;
+    });
+
+    document.querySelector("#repos").innerHTML = output;
   }
 
   // Clear the Profile
   clearProfile() {
-    this.profile.innerHTML = '';
+    this.profile.innerHTML = "";
   }
 }
